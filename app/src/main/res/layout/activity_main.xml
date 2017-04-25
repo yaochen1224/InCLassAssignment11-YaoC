@@ -12,14 +12,24 @@
     tools:context="com.yaoc.inclassassignment11_yaoc.MainActivity">
 
     <TextView
+        android:padding="10dp"
+        android:background="#90CAF9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:text="Welcome to Math Hero!" />
 
     <TextView
+        android:padding="5dp"
+        android:background="#E3F2FD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Success: 0, Fail: 0"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
         android:id="@+id/count"/>
 
     <!-- A RecyclerView with some commonly used attributes -->

@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/answer"
             android:hint="answer"
+            android:inputType="number"
             android:textColor="#757575"
             android:background="#eeeeee"
             android:textSize="18sp"/>

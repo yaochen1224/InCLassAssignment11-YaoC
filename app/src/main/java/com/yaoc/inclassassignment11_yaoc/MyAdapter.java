@@ -86,13 +86,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 if (holder.mResult.getText().toString().equals(holder.mAnswer)) {
                     //Success
                     ++ success;
-                    Toast.makeText(v.getContext(), "Congratulation!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Congratulations! You got it right!", Toast.LENGTH_SHORT).show();
                     mDataset.remove(holder.getAdapterPosition());
                     notifyDataSetChanged();
                 } else {
                     //Fail
                     ++ fail;
                     Toast.makeText(v.getContext(), "Booooooo~ Wrong answer!", Toast.LENGTH_SHORT).show();
+                    mDataset.remove(holder.getAdapterPosition());
+                    notifyDataSetChanged();
                 }
                 count.setText("Success: " + success + ", Fail: " + fail);
             }

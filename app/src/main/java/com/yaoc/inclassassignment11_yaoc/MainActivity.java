@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(mDataset, (TextView) findViewById(R.id.count));
         mRecyclerView.setAdapter(mAdapter);
 
-//        mRecyclerView.addOnItemTouchListener();
         return true;
     }
 
@@ -43,13 +42,16 @@ public class MainActivity extends AppCompatActivity {
     public void addQuiz(MenuItem menuItem) {
         int a = getRandomNumber(1, 100);
         int b = getRandomNumber(1, 100);
+        int c = getRandomNumber(1,10);
         int ans = 0;
         int op = getRandomNumber(0, 2);
         if (op == 0) ans = a + b;
-        else if (op == 1) ans = a * b;
-        else if (op == 2) {
+        else if (op == 1) {
+            b = c;
+            ans = a * b;
+        } else if (op == 2) {
             if (a < b) {
-                int c = a; a = b; b = c;
+                int d = a; a = b; b = d;
             }
             ans = a - b;
         }
