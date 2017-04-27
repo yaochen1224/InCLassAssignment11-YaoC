@@ -17,11 +17,19 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter mAdapter;
     private ArrayList<MathQuiz> mDataset;
     private Random rand;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        rand = new Random();
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.addmenu, menu);
+        return true;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        rand = new Random();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         mDataset = new ArrayList<MathQuiz>();
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
@@ -29,17 +37,18 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(mDataset, (TextView) findViewById(R.id.count));
         mRecyclerView.setAdapter(mAdapter);
 
-        return true;
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        for(int i = 0; i < 4; i++){
+            addNewQuiz();
+        }
     }
 
     private String[] operators = {"+", "*", "-"};
+
     public void addQuiz(MenuItem menuItem) {
+        addNewQuiz();
+    }
+
+    private void addNewQuiz() {
         int a = getRandomNumber(1, 100);
         int b = getRandomNumber(1, 100);
         int c = getRandomNumber(1,10);
